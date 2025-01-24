@@ -1,0 +1,37 @@
+This thread is one of the top Google search results for how to do this, and I got lost a few times in the process, so I'm going to document how I eventually did it here for my own reference in the future. Hopefully this will be helpful to others.
+
+How to legally dump a TI-84 ROM for your own use on Windows 11 in 2025:
+Requirements:
+[list]
+[*]A TI-84 Plus calculator that you own
+[*]A Windows computer (TiLP probably works in Linux, but I haven't tested it)
+[*]A USB mini-B cable. (Your old smart phone uses USB [b]micro[/b]-B, not USB [b]mini[/b]-B. "Mini" is slightly bigger than "micro" and looks kinda like a bucket hat. A TI-Link cable would probably work, too, but I haven't tested it)
+[*]TiLP ("[u]T[/u]ilp [u]I[/u]s a [u]L[/u]inking [u]P[/u]rogram")
+[*]GTK2.24 libraries (can be automatically installed by TiLP installer)
+[*]Zadig (to select the USB driver, by force!)
+[/list]
+[list=1]
+[*]Download the installer for TiLP linking program from [link=https://sourceforge.net/projects/tilp/files/latest/download]Sourceforge[/link]
+[*]Extract the zipped files.
+[*]In the unzipped folder, run tilp2-setup.exe.
+[*]You'll see a warning about "GTK+ libraries are not installed"; just click OK. They will be installed later.
+[*]Click "Next" until you get to the "Additional Tasks" page. Make sure "Download GTK+ runtime" is checked. Click "Next".
+[*]Click Next. TiLP2 is installed.
+[*]Click Next. Make sure "Launch TiLP" is NOT checked, and "Install GTK+ Runtime" IS checked. Click Finish.
+[*]GTK2-Runtime setup starts. Click "Next" until you get to the "Choose Components" page.
+[*]Check "Compatibility DLLs". Click "Next".
+[*]Click Next -> Install -> Next -> Finish.
+[*]Download Zadig from [link]https://zadig.akeo.ie/[/link]
+[*]Use the USB Mini-B cable to plug your TI-84+ to your computer. Make sure the screen is On or the next step won't work.
+[*]Run zadig-2.9.exe.
+[*]Click the Options menu. select "List All Devices".
+[*]In the first drop-down, select "TI-84 Plus". (If you don't see it, make sure your calculator didn't fall asleep.)
+[*]On the "Driver" row, click the down arrow next to WinUSB to select [b]libusb-win32[/b]
+[*]Click "Replace Driver". This will take a long time.
+[*]When it's finally done, close Zadig and launch TiLP.
+[*]Click "Dirlist" to test the connection. It should look kinda like this after:
+[*]Go to the Tools menu and select "Dump Rom".
+[*]When the process finishes, choose a place to save the ROM file.
+[*]Done!
+[/list]
+I wasn't able to get my ROM to work with JsTified, but it does seem to work fine with Tilem (TI Linux EMulator) on Windows and Graph89 for Android (which uses Tilem). In Wabbitemu, it crashed when I tried to run Catalog Helps.
